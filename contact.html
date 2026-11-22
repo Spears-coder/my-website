@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style101.css">
+	<title>My contact page </title>
+</head>
+<body>
+	<div class="top-navbar shadow-sm">
+		<input type="text" id="searchInput" placeholder="Search my site..." oninput="filterSearch()">
+	<div class="searchable-item">
+  <a href="home.html">Home</a>
+</div>
+
+<div class="searchable-item">
+  <a href="home.html">Destination</a>
+</div>
+
+<div class="searchable-item">
+  <a href="accomodation.html">Accommodation</a> 
+</div>
+
+<div class="searchable-item">
+  <a href="gallery.html">Gallery</a> 
+</div>
+
+<div class="searchable-item">
+  <a href="Services.html">Services and Products</a> 
+</div>
+
+<div class="searchable-item">
+  <a href="contact.html">Contact Form</a>
+  <a href="#about">About Us</a> 
+  <button onclick="myFunction()">DARK MODE</button>
+</div>
+</div>
+
+	<img class="img" src="picture/botleng.jpg">
+	<h2>CONTACT FORM</h2>
+	<p class="size"><b>FOR MORE INFO PLEASE USE THIS FORM TO GET YOU ANSWERED WITHIN NO TIME</b></p>
+	<form class="contact">
+	<label>Full Name</label>
+	<input type="name" name="" placeholder="Enter your name" required>
+	<label>Email</label>
+	<input type="email" name="" placeholder="Enter you email" required>
+	<label>Phone number</label>
+	<input type="contact" name="" placeholder="Enter Phone number" required>
+	<label for="message" class="form-label">Message</label>
+  <textarea class="form-control" id="message"rows="3"></textarea>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<section id="attendance" class="counter">
+ 		<h1>Visitor Attendance</h1>
+
+    <div id="btnContainer">
+    <label id="countlabel">0</label><br>
+    <button id="decreaseBtn">Remove Visitor </button>
+    <button id="resetBtn">Reset Count </button>
+    <button id="increaseBtn">Add Visitor</button>
+    </div>
+ 	</section>
+
+	<form class="bookings">
+		<h1>BOOKINGS FORM</h1>
+	<label>Full Name</label>
+	<input type="name" name="" placeholder="Enter your favourite place here" required>
+	<label>Check-in Date</label>
+	<input type="date" name="" placeholder="Enter you email" required>
+	<label>Guests</label>
+	<input type="number" name="" placeholder="Enter Phone number" required>
+	<label>Package Selection</label>
+  <div>
+  	<p>Total cost:M100</p>
+  <p>Selected package:Package 1</p>
+  <p>Number of guests:2</p>
+  <p>Dates:Mon Dec-22</p>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<section class="contact" style="margin: 40px auto; padding: 20px;">
+	<h1>DESTINATION COST CALCULATOR</h1>
+
+	<label for="calcDestination">Select Destination</label>
+	<select id="calcDestination" onchange="calculateDestinationCost()">
+		<option value="85">Sani-Pass (M85 / person / day)</option>
+		<option value="50">Tsehlanyane National Park (M50 / person / day)</option>
+		<option value="120">Afriski Resort (M120 / person / day)</option>
+		<option value="40">Kome-Cave (M40 / person / day)</option>
+		<option value="55">Sehlabathebe National Park (M55 / person / day)</option>
+		<option value="65">Katse Dam (M65 / person / day)</option>
+		<option value="95">Maletsunyane Falls (M95 / person / day)</option>
+		<option value="35">Thaba-Bosiu (M35 / person / day)</option>
+		<option value="60">Malea-Lea (M60 / person / day)</option>
+	</select>
+
+	<label for="calcGuests">Number of Guests</label>
+	<input type="number" id="calcGuests" value="1" min="1" oninput="calculateDestinationCost()">
+
+	<label for="calcDays">Number of Days</label>
+	<input type="number" id="calcDays" value="1" min="1" oninput="calculateDestinationCost()">
+
+	<label>Optional Activities (per person)</label>
+	<div>
+		<input type="checkbox" id="addonPony" value="30" onchange="calculateDestinationCost()">
+		<label for="addonPony">Pony Trekking (+M30)</label><br>
+
+		<input type="checkbox" id="addon4x4" value="70" onchange="calculateDestinationCost()">
+		<label for="addon4x4">4x4 Mountain Adventure (+M70)</label><br>
+
+		<input type="checkbox" id="addonGuide" value="25" onchange="calculateDestinationCost()">
+		<label for="addonGuide">Guided Cultural Tour (+M25)</label>
+	</div>
+
+	<div class="p-background" style="padding: 15px;">
+		<p><b>Destination Rate:</b> M<span id="rateDisplay">85</span> / person / day</p>
+		<p><b>Activities Add-on:</b> M<span id="addonDisplay">0</span></p>
+		<h3>Total Estimated Cost: M<span id="totalCostDisplay">85</span></h3>
+	</div>
+
+	<button type="button" onclick="calculateDestinationCost()">Calculate Cost</button>
+</section>
+
+<section class="about" id="about">
+	<h1>About Us</h1>
+	<hr>
+<h4>Welcome to your guide to Lesotho, the Kingdom in the Sky. <b>Ramarumo(The developer)</b> created this space to celebrate the breathtaking landscapes, deep history, and living culture of the Mountain Kingdom. From dramatic mountain passes like Sani Pass and towering waterfalls like Maletsunyane Falls to sacred landmarks like Thaba-Bosiu and the Kome Cave Dwellings, we help travelers discover places that stay with you long after the trip ends.
+
+Whether you are planning an adventure like pony trekking, 4x4 mountain driving, or abseiling, or looking to experience authentic Basotho village life, traditional music, and local food, we bring destinations, directions, and trip planning together in one place.
+
+Explore the mountains, honor the heritage, and experience Lesotho at its finest.</h4>
+</section>
+
+  <script>
+		function myFunction(){
+			var element = document.body;
+			element.classList.toggle("dark-mode");
+		}
+
+		 function filterSearch() {
+  let input = document.getElementById('searchInput').value.toLowerCase();
+  
+  let items = document.querySelectorAll('.searchable-item');
+
+  items.forEach(item => {
+    let text = item.textContent || item.innerText;
+    
+    if (text.toLowerCase().includes(input)) {
+      item.style.display = "";
+    } else {
+      item.style.display = "none";
+    }
+  });
+}
+
+function myFunction(){
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+        }
+        const decreaseBtn = document.getElementById("decreaseBtn");
+        const resetBtn = document.getElementById("resetBtn");
+        const increaseBtn = document.getElementById("increaseBtn");
+        let countlabel = document.getElementById("countlabel");
+        let count =0;
+        increaseBtn.onclick = function() {
+        count++;
+        countlabel.textContent = count;
+
+        }
+        decreaseBtn.onclick = function() {
+        count--;
+        countlabel.textContent = count;
+    }
+        resetBtn.onclick = function() {
+        count = 0;
+        countlabel.textContent = count;
+    }
+
+		function calculateDestinationCost() {
+			const destinationRate = parseFloat(document.getElementById("calcDestination").value) || 0;
+			const guests = Math.max(1, parseInt(document.getElementById("calcGuests").value) || 1);
+			const days = Math.max(1, parseInt(document.getElementById("calcDays").value) || 1);
+
+			let addonsPerPerson = 0;
+			if (document.getElementById("addonPony").checked) addonsPerPerson += 30;
+			if (document.getElementById("addon4x4").checked) addonsPerPerson += 70;
+			if (document.getElementById("addonGuide").checked) addonsPerPerson += 25;
+
+			const baseTotal = destinationRate * guests * days;
+			const addonTotal = addonsPerPerson * guests;
+			const grandTotal = baseTotal + addonTotal;
+
+			document.getElementById("rateDisplay").textContent = destinationRate;
+			document.getElementById("addonDisplay").textContent = addonTotal;
+			document.getElementById("totalCostDisplay").textContent = grandTotal;
+		}
+	</script>
+
+
+</body>
+<footer><b>Ramarumo@2026</b></footer>
+</html>
