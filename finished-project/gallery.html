@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>My Gallery</title>
+    <link rel="stylesheet" href="style0.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    
+  </head>
+  <body>
+
+    <div class="top-navbar shadow-sm">
+<input type="text" id="searchInput" placeholder="Search my site..." oninput="filterSearch()">
+<div class="searchable-item">
+  <a href="home.html">Home</a>
+</div>
+
+<div class="searchable-item">
+  <a href="home.html">Destination</a>
+</div>
+
+<div class="searchable-item">
+  <a href="Accomodation.html">Accommodation</a> 
+</div>
+
+<div class="searchable-item">
+  <a href="gallery.html">Gallery</a> 
+</div>
+
+<div class="searchable-item">
+  <a href="services.html">Services and Products</a> 
+</div>
+
+<div class="searchable-item">
+  <a href="Contact.html">Contact Form</a> 
+  <button onclick="myFunction()">DARK MODE</button>
+</div>
+</div>
+
+    <h1>Gallery</h1>
+    <div class="lightbox">
+      <div class="wrapper">
+        <header>
+          <div class="details">
+            <i class="uil uil-camera"></i>
+            <span>Image Preview</span>
+          </div>
+          <div class="buttons"><i class="close-icon uil uil-times"></i></div>
+        </header>
+        <div class="preview-img">
+          <div class="img"><img src="" alt="preview-img"></div>
+        </div>
+      </div>
+    </div>
+    <section class="gallery">
+      <ul class="images">
+        <li class="img"><img src="picture/animal1.jpg" alt="img"></li>
+        <li class="img"><img src="picture/animal2.jpg" alt="img"></li>
+        <li class="img"><img src="picture/animal3.jpg" alt="img"></li>
+        <li class="img"><img src="picture/food1.jpg" alt="img"></li>
+        <li class="img"><img src="picture/food2.jpg" alt="img"></li>
+        <li class="img"><img src="picture/food3.jpg" alt="img"></li>
+        <li class="img"><img src="picture/culture1.jpeg" alt="img"></li>
+        <li class="img"><img src="picture/culture2.jpeg" alt="img"></li>
+        <li class="img"><img src="picture/hicking2.jpg" alt="img"></li>
+        <li class="img"><img src="picture/afeiski.jpg" alt="img"></li>
+        <li class="img"><img src="picture/hand made crafts.jpg" alt="img"></li>
+      </ul>
+    </section>
+
+
+    <script>
+        function myFunction(){
+      var element = document.body;
+      element.classList.toggle("dark-mode");
+    }
+
+     function filterSearch() {
+  let input = document.getElementById('searchInput').value.toLowerCase();
+  
+  let items = document.querySelectorAll('.searchable-item');
+
+  items.forEach(item => {
+    let text = item.textContent || item.innerText;
+    
+    if (text.toLowerCase().includes(input)) {
+      item.style.display = "";
+    } else {
+      item.style.display = "none";
+    }
+  });
+}
+
+const allImages = document.querySelectorAll(".images .img");
+const lightbox = document.querySelector(".lightbox");
+const closeImgBtn = lightbox.querySelector(".close-icon");
+
+allImages.forEach(img => {
+    // Calling showLightBox function with passing clicked img src as argument
+    img.addEventListener("click", () => showLightbox(img.querySelector("img").src));
+});
+
+const showLightbox = (img) => {
+    // Showing lightbox and updating img source
+    lightbox.querySelector("img").src = img;
+    lightbox.classList.add("show");
+    document.body.style.overflow = "hidden";
+}
+
+closeImgBtn.addEventListener("click", () => {
+    // Hiding lightbox on close icon click
+    lightbox.classList.remove("show");
+    document.body.style.overflow = "auto";
+});
+    </script>
+
+  </body>
+  <footer><b>Ramarumo@2026</b></footer>
+</html>
